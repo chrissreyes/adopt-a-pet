@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { getPetDetails } from '../../api/petfinder';
 import Hero from '../../components/hero';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 const PetDetailsPage = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const id = '51322435'; // <--- Update me!
+  const {id} = useParams(); // <--- Update me!
 
   useEffect(() => {
     async function getPetsData() {
